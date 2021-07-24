@@ -87,8 +87,8 @@ class SiteController extends Controller
 		}
 
 		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
+		if(isset($_POST['LoginForm'])){
+
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
@@ -96,8 +96,8 @@ class SiteController extends Controller
 			
 			if($administrador == true){
 				$this->redirect(array('user/admin'));
-			}else{
-			$this->redirect(array('tareas/index'));
+			}else if($administrador == false && $model->validate() && $model->login() ){
+			    $this->redirect(array('tareas/index'));
 			}
 		}
 		// display the login form
