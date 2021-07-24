@@ -2,8 +2,8 @@
 
 class LoginController extends Controller
 {
-    public function actionIndex()
-	{
+    public function actionIndex(){
+
 		$this->layout="main";
 		
 		$model=new LoginForm; 
